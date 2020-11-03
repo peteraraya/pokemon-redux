@@ -26,15 +26,30 @@ const Pokemones = () => {
 
     }, [dispatch]);
     return (
-        <div className="row m-5 ">
-            <div className="col-md-8 bg-secondary rounded border shadow-sm p-2">
+        <div className="row">
+            <div className="col-md-6 bg-primary rounded border shadow p-2 mt-1">
                 <h4 className="text-light pb-2">Lista de Pokemones</h4>
-                <div className="d-flex justify-content-between">
+                <ul className="list-group mt-2">
+                    {
+                        pokemones.map((item, i) => (
+                            <li key={item.name + i} className="list-group-item text-uppercase">
+                                {item.name}
+                                <button
+                                    onClick={() => dispatch(unPokeDetalleAccion(item.url))}
+                                    className="btn btn-info btn-sm float-right">
+                                    Info
+                            </button>
+                            </li>
+                        ))
+                    }
+                </ul>
+                <div className="d-flex justify-content-between mt-4">
+                    
                     {
                         pokemones.length === 0 
                         && 
                         <button 
-                            className="btn btn-dark mr-3 " 
+                            className="btn btn-dark mr-3 mt-5" 
                             onClick={() => dispatch(obtenerPokemeonesAccion())}
                             >Get pokemones
                         </button>
@@ -44,7 +59,7 @@ const Pokemones = () => {
 
                         <button
                             onClick={() => dispatch(anteriorPokemonAccion())}
-                            className="btn btn-danger mr-3 ">
+                            className="btn btn-secondary mr-3 ">
                             Anterior
                         </button>
                     }
@@ -53,28 +68,15 @@ const Pokemones = () => {
                         next &&
                         <button
                             onClick={() => dispatch(siguientePokemonAccion())}
-                            className="btn btn-primary ml-3">
+                            className="btn btn-dark ml-3">
                             Siguiente
                         </button>
                     }
                 </div>
             
-                <ul className="list-group mt-3">
-                    {
-                        pokemones.map((item, i ) => (
-                        <li key={item.name + i} className="list-group-item text-uppercase"> 
-                            {item.name}
-                            <button 
-                                    onClick={() => dispatch(unPokeDetalleAccion(item.url)) }
-                                className="btn btn-info btn-sm float-right">
-                                    Info
-                            </button>
-                        </li>
-                        ))
-                    }
-                </ul>
+             
             </div>
-            <div className="col-md-4">
+            <div className="col-md-6">
                 <h3>Detalle Pokemon</h3>
                <Detalle />
             </div>

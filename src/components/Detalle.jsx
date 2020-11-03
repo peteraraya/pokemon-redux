@@ -22,8 +22,8 @@ const Detalle = () => {
 //   console.log(pokemon);
 
     return pokemon ?(
-        <div className="card mt-4 shadow text-center">
-            <div className="card-body">
+        <div className="card mt-2 shadow text-center shadow">
+            <div className="card-body bg-light">
                 <img src={pokemon.foto} className="img-fluid img-thumbnail" alt={pokemon.nombre} />
                 <div className="card-title font-weight-bold text-uppercase ">{pokemon.nombre}</div>
                 <div className="card-text">Alto: {pokemon.alto} | Ancho: {pokemon.ancho} </div>
