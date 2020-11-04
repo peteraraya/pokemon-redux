@@ -1,5 +1,8 @@
 import firebase from 'firebase/app';
 import 'firebase/auth';
+import 'firebase/firestore';
+import 'firebase/storage';
+
 
 const firebaseConfig = {
         apiKey: "AIzaSyAGz4cpviLp38uxPD_16pRFLJZ9HIT0JAQ",
@@ -14,6 +17,9 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 
 const auth = firebase.auth();
+// vamos a poder acceder a nuestras colecciones
+const db = firebase.firestore();
+// storage para almecenar archivos
+const storage = firebase.storage();
 
-
-export {auth, firebase }
+export {auth, firebase, db, storage }

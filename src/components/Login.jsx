@@ -21,7 +21,7 @@ const Login = (props) => {
         if (activo) {
             props.history.push('/')
         }
-    }, [activo])
+    }, [activo, props.history])
     return (
         <div className="mt-5 text-center card ">
             <div className="card-body">
